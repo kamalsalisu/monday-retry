@@ -1,7 +1,7 @@
 import re
 import requests
 from requests import Timeout
-from retry import retry_api_request
+from .retry import retry_api_request
 
 
 class Monday:
