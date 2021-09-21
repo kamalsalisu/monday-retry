@@ -23,4 +23,3 @@ class MixpanelMiddleware:
         query = quote(j.encode('utf-8'))
         payload = "data={}&verbose=1&ip=1".format(query)
         response = requests.request("POST", url, data=payload, headers=headers)
-        print(response.text)

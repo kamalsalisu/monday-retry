@@ -15,7 +15,6 @@ def retry_api_request(action):
             time.sleep(delay)
             value = action(query, timeout, retry_count)
             if 'errors' in value:
-                print('retrying')
                 return inner(query, timeout, retry_count=retry_count - 1, delay=value['delay'],
                              error=value['errors'])
             else:
