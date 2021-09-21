@@ -52,5 +52,5 @@ class Monday:
         if self.mixpanel_middleware:
             try:
                 self.mixpanel_middleware.send_to_mixpanel("Monday API Error", {"type": error_type})
-            except Exception:
-                pass
+            except Exception as e:
+                print(e)
