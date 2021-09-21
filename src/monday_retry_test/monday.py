@@ -30,9 +30,9 @@ class Monday:
             self._mixpanel_logger('Timeout')
             return {'errors': 'Request timed out', 'delay': 0}
         if 'errors' not in response:
-            self._mixpanel_logger('Complexity')
             return response
         else:
+            self._mixpanel_logger('Complexity')
             return {'errors': response, 'delay': self._extract_delay_from_api_response(response['errors'])}
 
     @staticmethod
@@ -51,6 +51,6 @@ class Monday:
     def _mixpanel_logger(self, error_type: str):
         if self.mixpanel_middleware:
             try:
-                self.mixpanel_middleware.send_to_mixpanel("Monday API Error", {"type": error_type})
+                self.mixpanel_middleware.send_to_mixpanel("Monday API Error", {"Monday Error Type": error_type})
             except Exception as e:
                 print(e)
